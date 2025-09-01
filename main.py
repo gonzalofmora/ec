@@ -1,4 +1,3 @@
-from pathlib import Path
 from deducciones.misiones import deducciones_misiones
 
 def main():

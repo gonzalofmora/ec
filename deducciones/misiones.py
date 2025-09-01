@@ -1,5 +1,7 @@
 import time
-from dotenv import dotenv_values
+from datetime                             import date
+from dateutil.relativedelta               import relativedelta
+from dotenv                               import dotenv_values
 from pathlib                              import Path
 from selenium                             import webdriver
 from selenium.webdriver.common.by         import By
@@ -15,7 +17,7 @@ def boton(driver: WebDriver, tuple: tuple[str, str]):
     )
     return btn
 
-def deducciones_misiones():
+def deducciones_misiones(mes_anterior=True):
     # Download directory
     download_dir = str(Path.cwd() / "deducciones" / "misiones")
 
@@ -51,16 +53,18 @@ def deducciones_misiones():
     ret_perc_btn = boton(driver, (By.XPATH, "//a[.//span[text()='Consulta de Ret./Perc.']]"))
     ret_perc_btn.click()
 
-    desde_input = input("Desde (aaaa/mm): ")
     desde_btn = boton(driver, (By.ID, "periodo_desde"))
-    desde_btn.clear()
-    desde_btn.send_keys(desde_input)
-
-    hasta_input = input("Hasta (aaaa/mm): ")
     hasta_btn = boton(driver, (By.ID, "periodo_hasta"))
-    hasta_btn.clear()
-    hasta_btn.send_keys(hasta_input)
-
+    if mes_anterior:
+        month_input = (date.today() - relativedelta(months=1)).strftime("%Y/%m")
+        desde_btn.send_keys(month_input)    
+        hasta_btn.send_keys(month_input)
+    else:
+        desde_input = input("Desde (aaaa/mm): ")
+        hasta_input = input("Hasta (aaaa/mm): ")
+        desde_btn.send_keys(desde_input)    
+        hasta_btn.send_keys(hasta_input)
+    
     descargar_btn = boton(driver, (By.ID, "btn_excel"))
     descargar_btn.click()
     time.sleep(1)

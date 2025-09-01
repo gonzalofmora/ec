@@ -8,6 +8,7 @@ dependencies = [
     "ipykernel>=6.30.1",
     "jupyter-core>=5.8.1",
     "jupyter>=1.0.0",
+    "python-dateutil>=2.9.0.post0",
     "python-dotenv>=1.1.1",
     "selenium>=4.35.0",
 ]
