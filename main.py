@@ -1,6 +1,8 @@
-def main():
-    print("Hello from ec!")
+from pathlib import Path
+from deducciones.misiones import deducciones_misiones
 
+def main():
+    deducciones_misiones()
 
 if __name__ == "__main__":
     main()
