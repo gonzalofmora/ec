@@ -1,22 +1,19 @@
 import time
 from dotenv import dotenv_values
-from pathlib                            import Path
-from selenium                           import webdriver
-from selenium.webdriver.common.by       import By
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.firefox.service import Service
-from selenium.webdriver.support         import expected_conditions as EC
-from selenium.webdriver.support.ui      import WebDriverWait
+from pathlib                              import Path
+from selenium                             import webdriver
+from selenium.webdriver.common.by         import By
+from selenium.webdriver.firefox.options   import Options
+from selenium.webdriver.support           import expected_conditions as EC
+from selenium.webdriver.support.ui        import WebDriverWait
+from selenium.webdriver.firefox.webdriver import WebDriver
 
-
-
-def boton(driver, tuple):
+def boton(driver: WebDriver, tuple: tuple[str, str]):
     by_type, text = tuple
     btn = WebDriverWait(driver, 10).until(
         EC.visibility_of(driver.find_element(by_type, text))
     )
     return btn
-
 
 def deducciones_misiones():
     # Download directory
@@ -30,8 +27,8 @@ def deducciones_misiones():
 
     # Login credentials
     config = dotenv_values()
-    user = config.get('CUIT_MISIONES')
-    password = config.get('PASSWORD_MISIONES')
+    user = str(config.get('CUIT_MISIONES'))
+    password = str(config.get('PASSWORD_MISIONES'))
 
     # Execution
     driver = webdriver.Firefox(options=options)
