@@ -6,16 +6,8 @@ from pathlib                              import Path
 from selenium                             import webdriver
 from selenium.webdriver.common.by         import By
 from selenium.webdriver.firefox.options   import Options
-from selenium.webdriver.support           import expected_conditions as EC
-from selenium.webdriver.support.ui        import WebDriverWait
-from selenium.webdriver.firefox.webdriver import WebDriver
+from funciones import boton
 
-def boton(driver: WebDriver, tuple: tuple[str, str]):
-    by_type, text = tuple
-    btn = WebDriverWait(driver, 10).until(
-        EC.visibility_of(driver.find_element(by_type, text))
-    )
-    return btn
 
 def deducciones_misiones(mes_anterior=True):
     # Download directory
@@ -74,3 +66,4 @@ def deducciones_misiones(mes_anterior=True):
     logout_btn.click()
 
     driver.quit()
+
