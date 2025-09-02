@@ -2,11 +2,11 @@ import time
 from datetime                             import date
 from dateutil.relativedelta               import relativedelta
 from dotenv                               import dotenv_values
+from funciones                            import boton
 from pathlib                              import Path
 from selenium                             import webdriver
 from selenium.webdriver.common.by         import By
 from selenium.webdriver.firefox.options   import Options
-from funciones import boton
 
 
 def deducciones_misiones(mes_anterior=True):
@@ -16,7 +16,7 @@ def deducciones_misiones(mes_anterior=True):
     # Browser options
     options = Options()
     options.set_preference("geo.enabled", False)
-    options.set_preference("browser.download.folderList", 2)
+    options.set_preference("browser.download.folderList", 2) # 2 = custom
     options.set_preference("browser.download.dir", download_dir)
 
     # Login credentials
