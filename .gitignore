@@ -15,5 +15,6 @@ wheels/
 # Data
 deducciones/misiones/
 impuestos/vep_mono_simple/
+comprobantes/afip/mis_comprobantes/ventas/
 # Archivos de prueba
 *.ipynb

@@ -2,7 +2,7 @@ import time
 from datetime                             import date
 from dateutil.relativedelta               import relativedelta
 from dotenv                               import dotenv_values
-from funciones                            import boton
+from funciones.navegar                    import boton
 from pathlib                              import Path
 from selenium                             import webdriver
 from selenium.webdriver.common.by         import By
