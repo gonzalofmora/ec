@@ -1,6 +1,7 @@
 import sys
 from deducciones.misiones         import deducciones_misiones
 from impuestos.monotributo_simple import liquidar_monotributo_simple
+from bdd.create_database          import crear_base
 
 def main():
     if len(sys.argv) < 2:
@@ -12,14 +13,18 @@ def main():
         deducciones_misiones()
     if sys.argv[1] == "--mono_simple":
         liquidar_monotributo_simple()
-
-    raise Exception(f"Ese no es un comando válido.\n {comandos}")
+    if sys.argv[1] == "--bdd":
+        print("Base de datos en construcción")
+        crear_base()
+    else:
+        raise Exception(f"Ese no es un comando válido.\n {comandos}")
 
 comandos = """
     Comandos disponibles:
-    --dgr
+    --dgr (Descargar deducciones de Misiones)
     --help
-    --mono_simple
+    --mono_simple (Presentar el monotributo simplificado)
+    --bdd (Actualizar la base de datos de las ventas)
     """
 
 if __name__ == "__main__":
