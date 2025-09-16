@@ -11,11 +11,13 @@ def main():
         return
     if sys.argv[1] == "--dgr":
         deducciones_misiones()
+        return
     if sys.argv[1] == "--mono_simple":
         liquidar_monotributo_simple()
+        return
     if sys.argv[1] == "--bdd":
-        print("Base de datos en construcción")
         crear_base()
+        return
     else:
         raise Exception(f"Ese no es un comando válido.\n {comandos}")
 
