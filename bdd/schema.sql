@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS ventas (
     punto_de_venta TEXT,
     numero_desde TEXT,
     numero_hasta TEXT,
-    cod_autorizacion TEXT,
+    cod_autorizacion TEXT UNIQUE,
     tipo_doc_receptor TEXT,
     nro_doc_receptor TEXT,
     denominacion_receptor TEXT,
@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS ventas (
     otros_tributos REAL,
     total_iva REAL,
     imp_total REAL,
-    cuit TEXT
+    cuit TEXT,
+    created_at TEXT
 );
 

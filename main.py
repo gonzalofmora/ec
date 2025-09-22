@@ -1,7 +1,7 @@
 import sys
 from deducciones.misiones         import deducciones_misiones
 from impuestos.monotributo_simple import liquidar_monotributo_simple
-from bdd.create_database          import crear_base
+from bdd.db_functions             import crear_base
 
 def main():
     if len(sys.argv) < 2:
