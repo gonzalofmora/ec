@@ -35,3 +35,8 @@ CREATE TABLE IF NOT EXISTS ventas (
     created_at TEXT
 );
 
+CREATE TABLE IF NOT EXISTS clientes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT,
+    cuit TEXT
+);

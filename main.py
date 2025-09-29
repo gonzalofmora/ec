@@ -1,7 +1,8 @@
 import sys
 from deducciones.misiones         import deducciones_misiones
 from impuestos.monotributo_simple import liquidar_monotributo_simple
-from bdd.db_functions             import crear_base
+from bdd.funciones_db             import importar_schema
+from bdd.datos.importar_datos     import importar_datos
 
 def main():
     if len(sys.argv) < 2:
@@ -16,7 +17,9 @@ def main():
         liquidar_monotributo_simple()
         return
     if sys.argv[1] == "--bdd":
-        crear_base()
+        importar_schema()
+        if sys.argv[2] == "datos":
+            importar_datos()
         return
     else:
         raise Exception(f"Ese no es un comando válido.\n {comandos}")

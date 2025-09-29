@@ -17,5 +17,6 @@ deducciones/misiones/
 impuestos/vep_mono_simple/
 comprobantes/afip/mis_comprobantes/ventas/
 bdd/ventas.db
+bdd/datos/clientes.csv
 # Archivos de prueba
 *.ipynb

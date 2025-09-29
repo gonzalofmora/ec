@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-def crear_base():     
+def importar_schema():     
     conn = sqlite3.connect('bdd/ventas.db')
     cursor = conn.cursor()
 
@@ -12,10 +12,10 @@ def crear_base():
     conn.commit()
     conn.close()
 
-def insertar_datos(db:str, df: pd.DataFrame) -> None:
+def insertar_datos(db:str, df: pd.DataFrame, tabla:str) -> None:
     with sqlite3.connect(db) as con:
-        cur = con.cursor()
         cols = ",".join(df.columns)
         placeholders = ",".join("?" * len(df.columns))
-        sql = f"INSERT OR IGNORE INTO ventas ({cols}) VALUES ({placeholders})"
+        sql = f"INSERT OR IGNORE INTO {tabla} ({cols}) VALUES ({placeholders})"
         con.executemany(sql, df.values.tolist())
+
