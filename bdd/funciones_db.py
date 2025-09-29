@@ -2,7 +2,7 @@ import sqlite3
 import pandas as pd
 
 def importar_schema():     
-    conn = sqlite3.connect('bdd/ventas.db')
+    conn = sqlite3.connect('bdd/ec.db')
     cursor = conn.cursor()
 
     with open('./bdd/schema.sql', 'r') as f:

@@ -18,8 +18,6 @@ def main():
         return
     if sys.argv[1] == "--bdd":
         importar_schema()
-        if sys.argv[2] == "datos":
-            importar_datos()
         return
     else:
         raise Exception(f"Ese no es un comando válido.\n {comandos}")
