@@ -19,15 +19,19 @@ def main():
     if sys.argv[1] == "--bdd":
         importar_schema()
         return
+    if sys.argv[1] == "--importar_datos":
+        importar_datos()
+        return
     else:
         raise Exception(f"Ese no es un comando válido.\n {comandos}")
 
 comandos = """
     Comandos disponibles:
-    --dgr (Descargar deducciones de Misiones)
+    --dgr → Descargar deducciones de Misiones.
     --help
-    --mono_simple (Presentar el monotributo simplificado)
-    --bdd (Actualizar la base de datos de las ventas)
+    --mono_simple → Presentar el monotributo simplificado.
+    --bdd → Actualizar el schema de la base de datos.
+    --importar_datos → Importar datos a la base de datos.
     """
 
 if __name__ == "__main__":

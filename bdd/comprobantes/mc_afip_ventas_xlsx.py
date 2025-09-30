@@ -5,7 +5,7 @@ from funciones.formatear import to_snake
 
 
 ## Creación del DF a partir de un archivo de Ventas de Mis Comprobantes
-def afip_df_mis_comprobantes_ventas_xlsx(archivo : Path) -> pd.DataFrame:
+def mc_afip_ventas_xlsx(archivo : Path) -> pd.DataFrame:
     cuit = pd.read_excel(archivo)
     cuit = str(cuit.columns[0].split(' - ')[1].split(' ')[1])
     dtypes = {
@@ -43,6 +43,7 @@ def afip_df_mis_comprobantes_ventas_xlsx(archivo : Path) -> pd.DataFrame:
     df["cuit"] = pd.Series([cuit] * len(df), dtype="string")
     return df
     
-archivo = ""
-df = afip_df_mis_comprobantes_ventas_xlsx(archivo)
-df.head()
+
+#archivo = ""
+#df = mc_afip_ventas_xlsx(archivo)
+#df.head()

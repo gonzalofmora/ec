@@ -6,4 +6,4 @@ def importar_datos():
 
     df = pd.read_csv('bdd/datos/clientes.csv')
 
-    insertar_datos('bdd/ventas.db', df, 'clientes')
+    insertar_datos('bdd/ec.db', df, 'clientes')
